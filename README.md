@@ -3,7 +3,7 @@
 A simple interactive number guessing game written in Python where the computer guesses the number you are thinking of using a binary search approach.
 You just have to answer Yes (Y) or No (N) to guide the program toward the correct number.
 
-📌 How the Game Works
+ How the Game Works :-
   1. You enter a start range and an end range.
   2. Think of a number within that range (don’t tell the computer).
   3. The program:
@@ -14,9 +14,10 @@ You just have to answer Yes (Y) or No (N) to guide the program toward the correc
   5. The process continues until the number is guessed correctly.
   6. This method is efficient because it uses binary search, reducing the number of guesses.
 
-🧠 Concepts Used
+ Concepts Used :-
   1. Recursion
   2. Binary Search Logic
   3. Conditional Statements
   4. User Input Handling
   5. Basic Python Functions
+
