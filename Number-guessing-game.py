@@ -1,46 +1,40 @@
-def guessNumber(startRange, endRange):
-    if startRange > endRange:
+def guessNumber(start, end):
+    if start > end:
         return True
 
+    mid = (start + end) // 2
+    user = input(f"Is the number {mid}? (Y/N): ").strip()
 
-    mid = (startRange + endRange) // 2
-
-   
-    print(f"Is the number {mid}? (Y/N): ", end="")
-    user = input().strip()
-
-    
-    if user in ("Y", "y"):
-        print("Congratulation Geek! Successfully Guessed Number.")
+    if user == "Y" or user == "y":
+        print("Congratulations! I guessed your number")
         return False
 
-    
-    elif user in ("N", "n"):
-        print(f"Is the actual number greater than {mid}? (Y/N): ", end="")
-        user = input().strip()
+    elif user == "N" or user == "n":
+        user = input(f"Is the actual number greater than {mid}? (Y/N): ").strip()
 
-        if user in ("Y", "y"):
-            return guessNumber(mid + 1, endRange)
-        elif user in ("N", "n"):
-            return guessNumber(startRange, mid - 1)
+        if user == "Y" or user == "y":
+            return guessNumber(mid + 1, end)
+        elif user == "N" or user == "n":
+            return guessNumber(start, mid - 1)
         else:
-            print("Invalid input. Please enter 'Y' or 'N'.")
-            return guessNumber(startRange, endRange)
+            print("Please enter only Y or N")
+            return guessNumber(start, end)
+
     else:
-        print("Invalid input. Please enter 'Y' or 'N'.")
-        return guessNumber(startRange, endRange)
+        print("Please enter only Y or N")
+        return guessNumber(start, end)
 
 
-if __name__ == "__main__":
-    print("Number Guessing Game in Python")
-    
-    
-    startRange = int(input("Enter Start Range: "))
-    endRange = int(input("Enter End Range: "))
+print("Number Guessing Game in Python")
 
-    print(f"Think of a number between {startRange} and {endRange}. I will try to guess it!")
+startRange = int(input("Enter Start Range: "))
+endRange = int(input("Enter End Range: "))
 
-    out = guessNumber(startRange, endRange)
+print(f"Think of a number between {startRange} and {endRange}")
+print("I will try to guess it!")
 
-    if out:
-        print("Couldn't guess it. Are you sure you answered correctly?")
+result = guessNumber(startRange, endRange)
+
+if result:
+    print("I couldn't guess your number.")
+    print("Please answer correctly next time.")
